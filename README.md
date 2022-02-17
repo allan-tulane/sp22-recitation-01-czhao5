@@ -1,7 +1,7 @@
 # CMPS 2200  Recitation 01
 
-**Name (Team Member 1):**_________________________  
-**Name (Team Member 2):**_________________________
+**Name (Team Member 1):** Reagan Esteves  
+**Name (Team Member 2):** Chenyu Zhao
 
 In this recitation, we will investigate asymptotic complexity. Additionally, we will get familiar with the various technologies we'll use for collaborative coding.
 
@@ -48,11 +48,14 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`? 
 
-**TODO: your answer goes here**
 
-- [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`? 
+Linear_search worse case input is infinity and results in a time complexity is O(n).
+Binary_search worse case input is when the element is not in list and has a time complexity is log_2(n).
 
-**TODO: your answer goes here**
+
+- [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`?
+
+Linear_search best case input value has a time complexity ofO(1) when the index is found at the first search. In the case of binary_search it is also O(1) time complexity when the index is found at the middle.
 
 - [ ] 6. Complete the `time_search` function to compute the running time of a search function. Note that this is an example of a "higher order" function, since one of its parameters is another function.
 
@@ -60,13 +63,30 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 8. Call `print_results(compare_search())` and paste the results here:
 
-**TODO: add your timing results here**
+|        n |        linear |     binary |
+|----------|---------------|------------|
+|       10 |    0.00357628 | 0.00357628 |
+|      100 |    0.01716614 | 0.00476837 |
+|     1000 |    0.30612946 | 0.00810623 |
+|    10000 |    1.89733505 | 0.01168251 |
+|   100000 |   23.18477631 | 0.02121925 |
+|  1000000 |  400.09832382 | 0.02455711 |
+| 10000000 | 3922.14965820 | 0.03099442 |
 
 - [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
 
-**TODO: your answer goes here**
+  The theoretical runtimes do match our empirical results because the linear worst-case run time increases drastically in contrast to the binary worst-case run time. Additionally, the linear runtime follows an O(n) runtime when graphed; whereas the binary also follows its own respective runtime when graphed.
+
 
 - [ ] 10. Binary search assumes the input list is already sorted. Assume it takes $\Theta(n^2)$ time to sort a list of length $n$. Suppose you know ahead of time that you will search the same list $k$ times. 
-  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? **TODO: your answer goes here**
-  + For binary search? **TODO: your answer goes here**
-  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? **TODO: your answer goes here**
+
+  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? 
+  The worst-case complexity of searching a list of n elements is k*O(n) .
+
+  + For binary search?
+    + Binary search worst case is k*O(log(n)).
+
+  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? 
+
+  If you are only searching a list once - the complexity for linear search is O(n) and binary and sorting is O(n log n). If there was more than one search (k times) then the complexity for sort and binary search is O((n+k)*logn). On the other hand, the complexity for linear search will be O(k * n).
+  Therefore, if you want to search a list, or multiple list, more than once, then binary and sorting would provide more efficient results. So, if k > 1, binary and sort is more effective; whereas an unsorted list with linear search will have a longer runtime.
